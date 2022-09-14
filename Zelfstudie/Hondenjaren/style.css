@@ -1,0 +1,118 @@
+body{
+    display:flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height:100vh;
+}
+
+.input_window{
+    height: 100px;
+    background-color: #27272d;
+    width: 370px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    padding: 10px;
+
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    border: 3px solid rgba(68, 234, 24, 0.96);
+    border-radius: 20px;
+}
+
+.input{
+    font-size: 30px;
+    font-family: "Andale Mono";
+    color: rgba(68, 234, 24, 0.96);
+
+    margin-right: 30px;
+}
+
+.buttons{
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+}
+
+.button, .send_button, .clear_button{
+    /*layout*/
+    flex: 0 0 calc(33.33% - 10px);
+    padding: 10px;
+    margin: 5px;
+
+    /*borders*/
+    border-left: 7px solid #c0bec5;
+    border-top: 7px solid #d7d5dc;
+    border-right: 7px solid #d4d2d9;
+    border-bottom: 7px solid #bdbbc2;
+
+    cursor: pointer;
+
+    /*appearance*/
+    background-color: #cfcdd4;
+    color: #47464c;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.send_button{
+    /*borders*/
+    border-left: 7px solid #139f17;
+    border-top: 7px solid #22cb26;
+    border-right: 7px solid #1dc021;
+    border-bottom: 7px solid #14a118;
+
+    /*appearance*/
+    background-color: #1ab41e;
+    color: white;
+}
+
+.clear_button{
+    /*borders*/
+    border-left: 7px solid #d0364f;
+    border-top: 7px solid #f14f6a;
+    border-right: 7px solid #e84a62;
+    border-bottom: 7px solid #d93d56;
+
+    /*appearance*/
+    background-color: #e3435d;
+    color: white;
+}
+
+.button:active, .send_button:active{
+    /*borders*/
+    border-left-color: #b5b4bb;
+    border-top-color: #cbc9d0;
+    border-right-corner: #c3c1c9;
+    border-bottom-corner: #abaab0;
+
+    /*appearance*/
+    background-color: #c3c2c9;
+}
+
+.clear_button:active{
+    /*borders*/
+    border-left-color: #c5324b;
+    border-top-color: #e54861;
+    border-right-color: #e0455e;
+    border-bottom-color: #ce3952;
+
+    /*appearance*/
+    background-color: #d53b53;
+}
+
+.result_window{
+    height: 20px;
+    width: 370px;
+    padding: 10px;
+    margin-top:20px;
+
+    text-align:center;
+}

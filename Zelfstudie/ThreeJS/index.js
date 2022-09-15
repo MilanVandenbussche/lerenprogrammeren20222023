@@ -1,50 +1,67 @@
-let buttons = document.querySelectorAll(".button");
-let sendButton = document.querySelector(".send_button");
-let clear = document.querySelector(".clear_button");
-let dogAge = "";
-let dogToHuman;
-let result = document.querySelector(".result")
-let collector = "";
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100);
 
-let inputWindow = document.getElementById("input");
+/**Light 1**/
+let light1 = new THREE.PointLight(0xffffff, 1, 500);
+light1.position.set(50, 50, 50);
+scene.add(light1);
 
-buttons.forEach(checkButtons);
+/**Light 2**/
+let light2 = new THREE.PointLight(0xffffff, 1, 1000);
+light2.position.set(-30, -20, 20);
+scene.add(light2);
 
-/*function checkButtons(button) {
-    button.addEventListener("click", function () {
-        console.log("klik");
-        if(collector = 0){
-            collector += button.value;
-        }else if(collector <= 20){
-            collector += button.value;
-            console.log(parseInt(collector));
-        }else{
-            console.log("gebt er al 2 staan");console.log(collector);
-        }
-        inputWindow.innerHTML = collector;
-    })
-}*/
 
-function checkButtons(button){
-    button.addEventListener("click", function(){
-        collector += button.value;
-        inputWindow.innerHTML = collector;
-        dogAge = collector;
-        console.log(dogAge);
+const renderer = new THREE.WebGLRenderer({antialias: true});
+
+renderer.setClearColor("#e5e5e5");
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+window.addEventListener("resize", () => {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+
+    camera.updateProjectionMatrix();
+})
+
+camera.position.z = 50;
+camera.position.x = 50;
+camera.position.y = 30;
+
+const geometry = new THREE.OctahedronGeometry(3, 0);
+const material = new THREE.MeshPhongMaterial({color:0xa05bfb});
+/**const shape = new THREE.Mesh(geometry, material);
+scene.add(shape);**/
+
+for(i=0;i < 10; i++){
+    var shape = new THREE.Mesh(geometry, material);
+    shape.material.shininess = 100;
+    shape.position.x = i * (Math.random() * 15);
+    shape.position.y = i * (Math.random() * 10);
+    shape.position.z = i * (Math.random() * 5);
+
+    console.log(shape.position.x, shape.position.y, shape.position.z);
+    scene.add(shape);
+}
+
+let shapes = scene.children.slice(2);
+
+let render = () =>{
+    requestAnimationFrame(render);
+    renderer.render(scene, camera);
+}
+
+function onMouseOver(){
+    shapes.forEach((mesh) =>{
+        let shapeSpeedX = Math.random() * 0.1;
+        let shapeSpeedY = Math.random() * 0.1;
+        mesh.rotation.x += shapeSpeedX;
+        mesh.rotation.y += shapeSpeedY;
     })
 }
 
-sendButton.addEventListener("click", function(){
-    dogToHuman = Math.floor(Math.log(16) * dogAge + 31);
-    result.innerHTML = "Your dog would be " + dogToHuman + " in human years! 🤯";
+window.addEventListener("mousemove", onMouseOver);
 
-    console.log(dogToHuman);
-})
-
-clear.addEventListener("click", function(){
-    result.innerHTML = "";
-    inputWindow.innerHTML = "";
-    collector = "";
-})
-
-//console.log("Your dog would be %i in human years! 🤯", dogToHuman);
+render();

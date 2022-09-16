@@ -8,8 +8,7 @@
  * for loop!
  */
 
-//let nummer = Math.round(Math.random() * 100);
-let nummer = 27;
+let nummer = Math.round(Math.random() * 100);
 let pogingen = 1;
 let userInput = Number(prompt("Raad het getal."));
 
@@ -17,28 +16,33 @@ for (i = 0; userInput !== nummer; i++) {
     if (userInput !== nummer) {
         pogingen++;
         if (userInput > nummer) {
+            userInput = Number(prompt("Lager"));
             console.log("Lager");
         } else {
+            userInput = Number(prompt("Hoger"));
             console.log("Hoger")
         }
-        userInput = Number(prompt("Raad het getal."));
     }
 }
 
 if (userInput === nummer) {
     var reload = document.createElement("div");
     reload.classList.add("reload");
-    document.body.appendChild(reload);
+    var score = document.createElement("div");
+    score.classList.add("score");
+    document.body.appendChild(reload, score);
     switch (pogingen) {
         case 1:
+            score.innerHTML = "Geraden in 1 poging!";
             console.log("Geraden in 1 poging!");
             break;
         default:
+            score.innerHTML = "Geraden in " + pogingen + " pogingen!";
             console.log("Geraden in %i pogingen!", pogingen);
             break;
     }
 }
 
-reload.addEventListener("mouseover", () =>{
-
+reload.addEventListener("click", ()=>{
+    document.location.reload();
 })

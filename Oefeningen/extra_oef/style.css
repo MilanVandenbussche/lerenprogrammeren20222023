@@ -5,6 +5,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    font-family: "Helvetica Neue";
 }
 
 .reload {
@@ -15,12 +17,20 @@ body {
     background-color: #4f7dbd;
     color: white;
     font-size: 50px;
-    position:relative;
+    position: relative;
 
-    transform: rotate();
+    line-height: 91px;
+    text-align: center;
 
-    line-height:91px;
-    text-align:center;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.reload:hover{
+    background-color: #3e69a4;
+    scale: 1.02;
+    filter:drop-shadow(0 0 20px #e8e8e8);
 }
 
 .reload::before {
@@ -30,5 +40,5 @@ body {
     height: initial;
     position: absolute;
 
-    left:0;
+    left: 0;
 }

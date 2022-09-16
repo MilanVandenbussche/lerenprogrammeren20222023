@@ -87,7 +87,6 @@ for (var i = 0; i < input; i++) {
     // console.log("");
 
 }
- **/
 
 let input = Number(prompt("How many Fibonacci numbers do you want in your sequence."));
 let x=0;
@@ -103,3 +102,24 @@ for(let i = 2;i<=input;i++){
 }
 
 console.log(fib);
+ **/
+
+let input = Number(prompt("How many fibonacci numbers do you wanne see?"));
+let x=0;
+let y=1;
+let som;
+let opvang = "";
+
+for(let i = 0; i < input; i++){
+    if(i<2){
+        opvang = opvang + i + ", ";
+    }else{
+        som=x+y;
+        x=y;
+        y=som;
+
+        opvang = opvang + y + ", ";
+    }
+}
+
+console.log(opvang);

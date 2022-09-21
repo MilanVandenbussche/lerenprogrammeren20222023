@@ -1,0 +1,11 @@
+Model Information:
+* title:	Mini tower
+* source:	https://sketchfab.com/3d-models/mini-tower-9fa1a8055f2f4c6baa0740c03660136b
+* author:	atalik_ST (https://sketchfab.com/atalik_ST)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Mini tower" (https://sketchfab.com/3d-models/mini-tower-9fa1a8055f2f4c6baa0740c03660136b) by atalik_ST (https://sketchfab.com/atalik_ST) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
